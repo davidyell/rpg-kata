@@ -7,7 +7,7 @@ use App\Entities\FactionMembership;
 use App\Factories\CharacterFactory;
 use App\Factories\FactionFactory;
 
-echo "Hello, and welcome to the RPG Kata! Pull up a chair and grab a mug of ale!\n\n";
+echo "<h1>Hello, and welcome to the RPG Kata!<h1> <h4>Pull up a chair and grab a mug of ale!</h4>";
 
 $characterOne = CharacterFactory::make('Tony the Tank');
 $characterTwo = CharacterFactory::make('Hector the Hero');
@@ -21,5 +21,5 @@ $factionMembership->join($phoenixOrder, $characterOne);
 $factionMembership->join($phoenixOrder, $characterTwo);
 $factionMembership->join($steelFalcons, $characterThree);
 
-echo "The Order of the Phoenix has {$factionMembership->memberCount($phoenixOrder)} members.\n\n";
-echo "The Steel Falcons has {$factionMembership->memberCount($steelFalcons)} members.";
+echo "<p>The Order of the Phoenix has {$factionMembership->memberCount($phoenixOrder)} members.<p>";
+echo "<p>The Steel Falcons has {$factionMembership->memberCount($steelFalcons)} members.</p>";
