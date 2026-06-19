@@ -1,7 +1,7 @@
 services:
   php-kata:
     build: .
-    container_name: php-kata
+    container_name: rpg-php-kata
     working_dir: /app
     volumes:
       - .:/app

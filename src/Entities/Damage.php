@@ -23,9 +23,9 @@ class Damage
     /**
      * Get the calculated amount of damage
      *
-     * @return integer
+     * @return integer|float
      */
-    public function getAmount(): int
+    public function getAmount(): int|float
     {
         $amount = $this->amount;
 
