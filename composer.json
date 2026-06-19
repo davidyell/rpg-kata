@@ -1,0 +1,12 @@
+{
+    "name": "davidyell/rpg-kata",
+    "description": "Building out the RPG kata",
+    "homepage": "https://www.sammancoaching.org/kata_descriptions/rpg_combat.html",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
