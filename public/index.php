@@ -9,9 +9,9 @@ use App\Factories\FactionFactory;
 
 echo "Hello, and welcome to the RPG Kata! Pull up a chair and grab a mug of ale!\n\n";
 
-$characterOne = CharacterFactory::make();
-$characterTwo = CharacterFactory::make();
-$characterThree = CharacterFactory::make();
+$characterOne = CharacterFactory::make('Tony the Tank');
+$characterTwo = CharacterFactory::make('Hector the Hero');
+$characterThree = CharacterFactory::make('Bartholomew the Brave');
 
 $phoenixOrder = FactionFactory::make('The Order of the Phoenix');
 $steelFalcons = FactionFactory::make('The Steel Falcons');

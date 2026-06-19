@@ -6,10 +6,18 @@ namespace App\Factories;
 
 use App\Entities\Faction;
 
-class FactionFactory implements FactoryInterface
+class FactionFactory
 {
-    public static function make(...$args): Faction
+    /**
+     * Create a new faction
+     * 
+     * Usage: FactionFactory::make('Chapter of the White Swan')
+     *
+     * @param string $name Pass the name of the faction
+     * @return Faction
+     */
+    public static function make(string $name): Faction
     {
-        return new Faction($args[0]);
+        return new Faction($name);
     }
 }

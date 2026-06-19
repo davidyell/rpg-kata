@@ -11,13 +11,25 @@ class Character
     private int $health = 1000;
     private int $level = 1;
 
-    public function __construct()
+    public function __construct(
+        private string $name
+    )
     {
         $this->health = 1000;
         
         if ($this->level >= 6) {
             $this->health = 1500;
         }
+    }
+
+    /**
+     * Get the characters name
+     *
+     * @return string
+     */
+    public function getName(): string 
+    {
+        return $this->name;
     }
 
     /**
