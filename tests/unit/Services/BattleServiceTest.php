@@ -21,7 +21,7 @@ class BattleServiceTest extends TestCase
             ->willReturn(true);
 
         $battleService = new BattleService($factionMembership);
-        $result = $battleService->canAttack(new Character(), new Character());
+        $result = $battleService->canAttack(new Character('Thor'), new Character('Iron Man'));
 
         $this->assertFalse($result);
     }
@@ -35,7 +35,7 @@ class BattleServiceTest extends TestCase
             ->willReturn(false);
 
         $battleService = new BattleService($factionMembership);
-        $result = $battleService->canAttack(new Character(), new Character());
+        $result = $battleService->canAttack(new Character('Black Widow'), new Character('Thanos'));
 
         $this->assertTrue($result);
     }
@@ -44,8 +44,8 @@ class BattleServiceTest extends TestCase
     {
         $battleService = new BattleService(new FactionMembership());
 
-        $attacker = new Character();
-        $deadCharacter = new Character();
+        $attacker = new Character('Thanos');
+        $deadCharacter = new Character('Spider-Man');
 
         $dmg = new Damage($attacker, $deadCharacter, $deadCharacter->getHealth() + 10);
 
@@ -65,7 +65,7 @@ class BattleServiceTest extends TestCase
             ->willReturn(false);
 
         $battleService = new BattleService($factionMembership);
-        $result = $battleService->canHeal(new Character(), new Character());
+        $result = $battleService->canHeal(new Character('Iron man'), new Character('Thanos'));
 
         $this->assertFalse($result);
     }
@@ -79,7 +79,7 @@ class BattleServiceTest extends TestCase
             ->willReturn(true);
 
         $battleService = new BattleService($factionMembership);
-        $result = $battleService->canHeal(new Character(), new Character());
+        $result = $battleService->canHeal(new Character('Starlord'), new Character('Groot'));
 
         $this->assertTrue($result);
     }
@@ -88,8 +88,8 @@ class BattleServiceTest extends TestCase
     {
         $battleService = new BattleService(new FactionMembership());
 
-        $healer = new Character();
-        $deadCharacter = new Character();
+        $healer = new Character('Mantis');
+        $deadCharacter = new Character('Drax');
 
         $dmg = new Damage($healer, $deadCharacter, $deadCharacter->getHealth() + 10);
 
@@ -113,8 +113,8 @@ class BattleServiceTest extends TestCase
             ->method('canAttack')
             ->willReturn(true);
 
-        $attacker = new Character();
-        $target = new Character();
+        $attacker = new Character('Hulk');
+        $target = new Character('Loki');
         $damageAmount = 10;
 
         $damage = $battleService->attack($attacker, $target, $damageAmount);
@@ -135,8 +135,8 @@ class BattleServiceTest extends TestCase
             ->method('canHeal')
             ->willReturn(true);
 
-        $healer = new Character();
-        $target = new Character();
+        $healer = new Character('Valkyrie');
+        $target = new Character('Dr Strange');
         $healAmount = 10;
 
         $hp = $battleService->heal($healer, $target, $healAmount);

@@ -14,6 +14,17 @@ class FactionMembership
     private $memberships = [];
 
     /**
+     * Check if a faction exists
+     *
+     * @param FactionInterface $faction
+     * @return boolean
+     */
+    protected function factionExists(FactionInterface $faction): bool
+    {
+        return isset($this->memberships[spl_object_id($faction)]);
+    }
+
+    /**
      * Add the passed character to the faction
      *
      * @param FactionInterface $faction
@@ -34,11 +45,16 @@ class FactionMembership
      */
     public function isMember(FactionInterface $faction, Character $character): bool
     {
+        if (!$this->factionExists($faction)) {
+            return false;
+        }
+
         return in_array($character, $this->memberships[spl_object_id($faction)], true);
     }
 
     /**
      * Check if two characters are in the same faction
+     * Characters can be in more than one faction!
      *
      * @param Character $firstChar
      * @param Character $secondChar
@@ -63,6 +79,10 @@ class FactionMembership
      */
     public function leave(FactionInterface $faction, Character $character): void
     {
+        if (!$this->factionExists($faction)) {
+            return;
+        }
+
         $key = array_search($character, $this->memberships[spl_object_id($faction)], true);
         if ($key !== false) {
             unset($this->memberships[spl_object_id($faction)][$key]);
@@ -77,10 +97,10 @@ class FactionMembership
      */
     public function memberCount(FactionInterface $faction): int
     {
-        $count = 0;
-        if (isset($this->memberships[spl_object_id($faction)])) {
-            $count = count($this->memberships[spl_object_id($faction)]);
+        if (!isset($this->memberships[spl_object_id($faction)])) {
+            return 0;
         }
-        return $count;
+
+        return count($this->memberships[spl_object_id($faction)]);
     }
 }
