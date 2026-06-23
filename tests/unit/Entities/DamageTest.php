@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class DamageTest extends TestCase
 {
-    public function testDamageAmountWhenAttackerIsHigherLevel()
+    public function testDamageAmountWhenAttackerIsHigherLevel(): void
     {
         $attacker = $this->createMock(Character::class);
         $attacker
@@ -28,7 +28,7 @@ class DamageTest extends TestCase
         $this->assertEquals(150, $damage->getAmount());
     }
 
-    public function testDamageAmountWhenDefenderIsHigherLevel()
+    public function testDamageAmountWhenDefenderIsHigherLevel(): void
     {
         $attacker = $this->createMock(Character::class);
         $attacker
@@ -46,7 +46,7 @@ class DamageTest extends TestCase
         $this->assertEquals(50, $damage->getAmount());
     }
 
-    public function testDamageAmountWhenLevelsAreEqual()
+    public function testDamageAmountWhenLevelsAreEqual(): void
     {
         $attacker = $this->createMock(Character::class);
         $attacker

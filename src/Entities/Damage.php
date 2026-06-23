@@ -21,11 +21,11 @@ class Damage
     }
 
     /**
-     * Get the calculated amount of damage
+     * Get the calculated amount of damage, rounded to the nearest whole number
      *
-     * @return integer|float
+     * @return int
      */
-    public function getAmount(): int|float
+    public function getAmount(): int
     {
         $amount = $this->amount;
 
@@ -37,6 +37,6 @@ class Damage
             $amount *= 0.5;
         }
 
-        return $amount;
+        return intval(round($amount));
     }
 }

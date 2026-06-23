@@ -6,6 +6,9 @@ namespace App\Factories;
 
 use App\Entities\Character;
 
+/**
+ * @phpstan-import-type CharacterName from Character
+ */
 class CharacterFactory
 {
     /**
@@ -13,10 +16,10 @@ class CharacterFactory
      * 
      * Usage: CharacterFactory::make('Sparkles the Mystical')
      *
-     * @param string $name Pass the characters name
+     * @param CharacterName $name Pass the characters name
      * @return Character
      */
-    public static function make($name): Character
+    public static function make(string $name): Character
     {
         return new Character($name);
     }

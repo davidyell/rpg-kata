@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Entities\Character;
 use App\Entities\Damage;
-use App\Entities\FactionMembership;
+use App\Entities\Factions\FactionMembership;
 
 /**
  * Allows characters to battle each other
@@ -28,6 +28,10 @@ class BattleService
      */
     public function attack(Character $attacker, Character $target, int $damageAmount): Damage|null
     {
+        if ($damageAmount <= 0) {
+            throw new \InvalidArgumentException('Damage must be greater than 0');
+        }
+
         if ($this->canAttack($attacker, $target)) {
             $damage = new Damage($attacker, $target, $damageAmount);
             $target->takeDamage($damage);
@@ -48,6 +52,10 @@ class BattleService
      */
     public function heal(Character $healer, Character $target, int $healAmount): int
     {
+        if ($healAmount <= 0 || $healAmount > Character::HP_MAX) {
+            throw new \InvalidArgumentException('Heal amount must be greater than 0 and less than or equal to '.Character::HP_MAX);
+        }
+
         if ($this->canHeal($healer, $target)) {
             $target->heal($healAmount);
         }

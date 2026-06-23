@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Test\unit\Entities;
 
 use App\Entities\Character;
-use App\Entities\FactionInterface;
-use App\Entities\FactionMembership;
+use App\Entities\Factions\FactionInterface;
+use App\Entities\Factions\FactionMembership;
 use PHPUnit\Framework\TestCase;
 
 class FactionMembershipTest extends TestCase

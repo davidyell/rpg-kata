@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entities;
+namespace App\Entities\Factions;
 
 class Faction implements FactionInterface
 {

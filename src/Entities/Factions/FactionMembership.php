@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Entities;
+namespace App\Entities\Factions;
+
+use App\Entities\Character;
 
 class FactionMembership
 {
     /**
      * Store which characters are in with faction
      *
-     * @var array<string, Character[]> 
+     * @var array<int, Character[]> 
      */
     private $memberships = [];
 

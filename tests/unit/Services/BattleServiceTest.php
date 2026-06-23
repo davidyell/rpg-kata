@@ -6,7 +6,7 @@ namespace App\Tests\Unit\Services;
 
 use App\Entities\Character;
 use App\Entities\Damage;
-use App\Entities\FactionMembership;
+use App\Entities\Factions\FactionMembership;
 use App\Services\BattleService;
 use PHPUnit\Framework\TestCase;
 
